@@ -1,0 +1,21 @@
+{% extends "common/base.html" %}
+{% block content %}
+<div class="col-md-6 text-center">
+    <br><br><br><br><br><br><br><br>
+    <form method="POST">
+        {% csrf_token %}
+        <legend>Please describe the Error data in Log</legend>
+        <div class="form-group textarea">
+            <textarea name="issue" id="issue" cols="30" rows="10"></textarea>
+        </div>
+
+        <legend>Cause of Data in one line</legend>
+        <div class="form-group text">
+            <input type="text" name="cause" id="cause" placeholder="Error in /etc/fstab">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="form-control btn-primary btn-lg">
+        </div>
+    </form>
+</div>
+{% endblock content %}

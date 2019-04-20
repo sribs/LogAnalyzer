@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Analyzer - {{ title }}</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Favicon -->
+  <link href="{% static 'seriallog/img/favicon.ico' %}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Libraries CSS Files -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="{% static 'seriallog/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Bell
+    Theme URL: https://bootstrapmade.com/bell-free-bootstrap-4-template/
+    Author: BootstrapMade.com
+    Author URL: https://bootstrapmade.com
+  ======================================================= -->
+</head>
+
+<body>
+  <!-- Page Content
+    ================================================== -->
+    <header class="site-header">
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="#">LogAnalyzer</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Products
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../seriallog/">Serial Log Analyzer</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="">Performance Report Analyzer</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <div class="navbar-nav">
+      {% if user.is_authenticated %}
+      <div class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user" aria-hidden="true"></i> {{ user }}
+          </a>
+          <div class="dropdown-menu text-xs-center" aria-labelledby="navbarDropdown">
+              <a href="{% url 'common-logout' %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign out!</a>
+          </div>
+      </div>
+      {% else %}
+      <a href="{% url 'common-login' %}"<button class="btn btn-success my-2 my-sm-0" type="button"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button></a>
+      <a href="{% url 'common-register' %}"<button class="btn btn-default my-2 my-sm-0" type="button"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</button></a>
+      {% endif %}
+    </div>
+</nav>
+      </header>
+  <!-- #header -->
+  <main role="main" class="container">
+      <div class="row">
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+          {% block content %}{% endblock %}
+      </div>
+    </main>
+    <br><br><br><br><br>
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; LinuxDevs 2019</p>
+        </div>
+        <!-- /.container -->
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <!-- Required JavaScript Libraries -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

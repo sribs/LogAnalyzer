@@ -1,0 +1,29 @@
+{% extends "common/base.html" %}
+{% load static %}
+{% block content %}
+<!-- Heading Row -->
+<div class="col-md-6 text-center">
+    <br><br><br><br><br><br><br><br>
+  <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+        <div class="form-group files">
+          <label>Upload Your File </label>
+          <input type="file" class="form-control" multiple="" name="seriallog">
+        </div>
+        <div class="form-group">
+          <input type="submit" class="form-control btn-primary btn-lg">
+        </div>
+  </form>
+</div>
+
+<div class="col-md-6">
+    <br><br><br><br><br><br><br><br>
+    <label> Serial Log Analysis</label>
+    <ul>
+    {% for line in analysis %}
+      <li>{{ line }}</li>
+    {% endfor %}
+    </ul>
+</div>
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

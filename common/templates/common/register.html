@@ -1,0 +1,57 @@
+{% extends "common/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<script>window.location.href = "{% url 'common-home' %}"</script>
+{% endif %}
+<section class="register-block">
+    <br><br><br><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 login-sec">
+            <form class="register-form" method="POST">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Register Now</legend>
+                    {{ form|crispy }}
+              <div class="border-top bt-4">
+                <button type="submit" class="btn btn-outline-info float-right">Submit</button>
+              </div>
+              <small class="text-muted">Existing User ? <a href="{% url 'common-login' %}">Sign in here</a></small>
+            </fieldset>
+            </form>
+        </div>
+        <div class="col-md-8 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="{% static 'common/swap.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="{% static 'common/seriallog.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+            </div>	     
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+{% endblock content%}

@@ -1,0 +1,232 @@
+{% extends "common/base.html" %}
+{% load static %}
+{% block content %}
+<section class="login-block">
+    <br><br><br><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 login-sec">
+            <h2 class="text-center">Login Now</h2><br><br><br>          
+            <form class="login-form">
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+                  <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                <input type="password" class="form-control" placeholder="">
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  <small>Remember Me</small>
+                </label>
+                <button type="submit" class="btn btn-login float-right">Submit</button>
+              </div>
+            </form>
+        </div>
+        <div class="col-md-8 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="{% static 'common/swap.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="{% static 'common/seriallog.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+            </div>	     
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+{% endblock content%}
+
+{% extends "common/base.html" %}
+{% load static %}
+{% block content %}
+<section class="login-block">
+    <br><br><br><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 login-sec">
+          {% if login_form_type %}
+            <h2 class="text-center">Login Now</h2><br><br><br>          
+            <form class="login-form">
+          {% else %}
+            <h2 class="text-center">Register Now</h2><br><br><br>          
+            <form class="register-form">
+          {% endif %}
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+                  <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                <input type="password" class="form-control" placeholder="" name="password">
+              </div>
+          {% if login_form_type %}
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  <small>Remember Me</small>
+                </label>
+                <button type="submit" class="btn btn-login float-right">Submit</button>
+              </div>
+          {% else %}
+              <div class="form-group">
+                  <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                  <input type="password" class="form-control" placeholder="" name="confirm_password">
+              </div>
+              <script>
+                  $('#password, #confirm_password').on('keyup', function () {
+                    if ($('#password').val() == $('#confirm_password').val()) {
+                      $('#message').html('Matching').css('color', 'green');
+                    } else 
+                      $('#message').html('Not Matching').css('color', 'red');
+                  });
+              </script>
+              <button type="submit" class="btn btn-login float-right">Submit</button>
+          {% endif %}
+              </div>
+            </form>
+        </div>
+        <div class="col-md-8 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="{% static 'common/swap.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="{% static 'common/seriallog.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+            </div>	     
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+{% endblock content%}
+
+{% extends "common/base.html" %}
+{% load static %}
+{% block content %}
+<section class="login-block">
+    <br><br><br><br><br><br>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 login-sec">
+          {% if login_form_type %}
+            <h2 class="text-center">Login Now</h2><br><br><br>          
+            <form class="login-form">
+          {% else %}
+            <h2 class="text-center">Register Now</h2><br><br><br>          
+            <form class="register-form" method="POST">
+          {% endif %}
+              {% csrf_token %}
+              <div class="form-group">
+                <label for="exampleInputEmail1" class="text-uppercase">Username</label>
+                  <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+              </div>
+          {% if login_form_type %}
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="checkbox" class="form-check-input">
+                  <small>Remember Me</small>
+                </label>
+                <button type="submit" class="btn btn-login float-right disabled">Submit</button>
+              </div>
+          {% else %}
+              <div class="form-group">
+                  <label for="exampleInputPassword2" class="text-uppercase">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm_password" name="confirm_password" onkeyup="check();">
+                  <span id="message"></span>
+              </div>
+              <button type="submit" id="enter" class="btn btn-login float-right">Submit</button>
+          {% endif %}
+            </form>
+        </div>
+        <div class="col-md-8 banner-sec">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="{% static 'common/swap.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="{% static 'common/seriallog.png' %}" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <div class="banner-text">
+                      <h2>This is Heaven</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                  </div>	
+                </div>
+              </div>
+            </div>	     
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <script>
+      var check = function() {
+        if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+          document.getElementById('message').style.color = 'green';
+          document.getElementById('message').innerHTML = 'matching';
+          $('#enter').prop('disabled',false)
+        } else {
+          document.getElementById('message').style.color = 'red';
+          document.getElementById('message').innerHTML = 'not matching';
+          $('#enter').prop('disabled',true)
+        }
+      }
+    </script>
+{% endblock content%}
